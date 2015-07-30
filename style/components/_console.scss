@@ -1,0 +1,111 @@
+.bashy #bashy-overlay{
+    opacity:1;
+    z-index:1000000000;
+    transition:opacity $overlay-transition-time;
+    
+    &:after{
+        content:'x';
+        position:fixed;
+        right:0;
+        bottom:$panel-input-height + $panel-padding*2;
+        height: 22px;
+        width: 22px;
+        text-align: center;
+        line-height: 22px;
+        color: white;
+        font-size: 80%;
+        font-family: sans-serif;
+        font-weight: lighter;
+        cursor:pointer;
+    }
+}
+
+#bashy-overlay{
+
+    background:$overlay-bg;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:-1;
+    opacity:0;
+    
+    &:after{
+        opacity:inherit;
+        transition-delay: $overlay-transition-time / 1.2;
+    }
+    
+    
+}
+
+.bashy #bashy-panel{
+    bottom:0;
+    transition:bottom $overlay-transition-time;
+}
+
+#bashy-panel{
+    
+    position: fixed;
+    bottom: -80px;
+    left: 0;
+    right: 0;
+    padding: $panel-padding;
+    box-shadow: $panel-shadow;
+    background-color: $panel-bg;
+    font-size: $panel-font-size;
+    
+    &:before{
+        content:'Bashy version 0.0.1';
+        position:absolute;
+        width:100%;
+        height:$panel-before-height;
+        line-height: $panel-before-height;
+        background:lighten($panel-bg,2);
+        top:-$panel-before-height;
+        font-size:$panel-before-font-size;
+        color:lighten($color-contrast,30);
+        border-top:2px solid $color-contrast;
+        left:0;
+        padding:0px 10px;
+    }
+
+}
+
+#bashy-panel-input{
+    
+    background:none;
+    outline: none;
+    border:none;
+    color:white;
+    width:100%;
+    display: block;
+    font-size: inherit;
+    padding: 0px;
+    height:$panel-input-height;
+    line-height:$panel-input-height;
+    
+    &:focus{
+        outline:none;
+        border:none;
+        box-shadow: none;
+    }
+    
+    ::-webkit-input-placeholder {
+       color: lighten($panel-bg,50);
+    }
+
+    :-moz-placeholder { /* Firefox 18- */
+       color: lighten($panel-bg,50);  
+    }
+
+    ::-moz-placeholder {  /* Firefox 19+ */
+       color: lighten($panel-bg,50);  
+    }
+
+    :-ms-input-placeholder {  
+       color: lighten($panel-bg,50);  
+    }
+    
+
+}
